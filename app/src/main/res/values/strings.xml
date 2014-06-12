@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WorldCup2014</string>
+    <string name="title_section1">Matches</string>
+    <string name="title_section2">Groups</string>
+    <string name="title_section3">2nd Stage</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+</resources>

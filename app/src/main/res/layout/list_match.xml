@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3:00 AM"
+        android:id="@+id/timeTextView"
+        android:layout_gravity="right"
+        android:singleLine="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group A"
+        android:id="@+id/groupTextView"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="5dp" />
+
+    <ImageView
+        android:layout_width="@dimen/channel_width"
+        android:layout_height="@dimen/channel_height"
+        android:id="@+id/channelImageView"
+        android:background="@drawable/channel_ch7"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/groupTextView" />
+
+    <ImageView
+        android:layout_width="@dimen/flag_width"
+        android:layout_height="@dimen/flag_height"
+        android:id="@+id/team1ImageView"
+        android:background="@drawable/flag_default"
+        android:adjustViewBounds="false"
+        android:layout_below="@+id/channelImageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="@dimen/flag_width"
+        android:layout_height="@dimen/flag_height"
+        android:id="@+id/team2ImageView"
+        android:background="@drawable/flag_default"
+        android:layout_below="@+id/team1ImageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp" />
+
+</RelativeLayout>

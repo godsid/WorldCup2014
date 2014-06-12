@@ -64,7 +64,7 @@ public class MatchAdapter extends BaseAdapter {
 
 
         matchItemView.groupTextView.setText(match.getGroup());
-        matchItemView.timeTextView.setText(String.valueOf(match.getTimestamp()));
+        matchItemView.timeTextView.setText(ThaiDate.format(match.getTimestamp(),Config.timeFormat));
 
         //matchItemView.team1ImageView.setImageResource(R.drawable.flag_default);
         //matchItemView.team2ImageView.setImageResource(R.drawable.flag_default);

@@ -23,7 +23,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
@@ -222,11 +224,12 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             return rootView;
         }
 
-        private View fragment_matchs(View rootView){
+        private View fragment_matchs(final View rootView){
 
 
             GridView placeGridView  = (GridView)rootView.findViewById(R.id.matchGridView);
             HorizontalScrollView dateHorScrollView = (HorizontalScrollView)rootView.findViewById(R.id.dateHorScrollView);
+
             //GridView dateListView = (GridView)rootView.findViewById(R.id.dataListView);
 
             matchArrayList = new ArrayList<Match>();
@@ -241,13 +244,17 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
             //for(int i=0;i<10;i++){
             //    matchArrayList.add(new Match((new Date().getTime()),"Group A","Brazil","German"));
             //}
-            //String apiURL = "http://review.edtguide.com/api/place/getNearBy/14.000000/100.000000/0/10?format=json&member_id=579";
+
             String apiURL = Config.apiURL;
             Log.d("tui","call:"+apiURL);
 
             aq.ajax(apiURL, JSONArray.class,Config.apiCacheTime,new AjaxCallback<JSONArray>(){
                 @Override
                 public void callback(String url, JSONArray object, AjaxStatus status) {
+                    LinearLayout dateLayout = (LinearLayout)rootView.findViewById(R.id.dateLayout);
+                    Spinner dateSpinner = (Spinner)rootView.findViewById(R.id.dateSpinner);
+                    ArrayList<String> listSpinner = new ArrayList<String>();
+
                     Log.d("tui","msg:"+status.getMessage()+" callback:"+url);
                     //super.callback(url, object, status);
                     if(object!=null){
@@ -257,8 +264,14 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                         Log.d("tui",String.valueOf(object.length()));
                         for(int i=0,j=object.length();i<j;i++){
                             try {
+
                                 matchDate = object.getJSONObject(i);
                                 matchTeams = matchDate.getJSONArray("match");
+                                TextView dateTextView = new TextView(rootView.getContext());
+                                listSpinner.add(ThaiDate.format(matchDate.getLong("timestamps"), Config.dateFormat));
+
+                                dateTextView.setText(ThaiDate.format(matchDate.getLong("timestamps"), Config.dateFormat));
+                                dateLayout.addView(dateTextView);
                                 for(int k=0,l=matchTeams.length();k<l;k++){
                                     matchTeam = matchTeams.getJSONObject(k);
 
@@ -272,6 +285,8 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                                 e.printStackTrace();
                             }
                         }
+                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(rootView.getContext(),android.R.layout.simple_list_item_1,listSpinner);
+                        dateSpinner.setAdapter(arrayAdapter);
                         matchListAdapter.notifyDataSetChanged();
                     }
                 }

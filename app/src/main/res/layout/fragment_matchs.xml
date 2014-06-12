@@ -16,10 +16,16 @@
             android:id="@+id/leftButton" />
 
         <HorizontalScrollView
-            android:layout_width="230dp"
+            android:layout_width="200dp"
             android:layout_height="match_parent"
             android:id="@+id/dateHorScrollView" >
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/dateLayout"
+                android:gravity="center_vertical"></LinearLayout>
         </HorizontalScrollView>
 
         <Button
@@ -29,6 +35,11 @@
             android:id="@+id/rightButton" />
 
     </LinearLayout>
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dateSpinner" />
 
     <GridView
         android:layout_width="wrap_content"

@@ -5,12 +5,10 @@
     <string name="title_section1">Matches</string>
     <string name="title_section2">Groups</string>
     <string name="title_section3">2nd Stage</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">ตื่นๆ บอลเตะแล้ว</string>
     <string name="action_settings">Settings</string>
 
-    <string-array name="spinnerData">
-        <item>dsdsd</item>
-        <item>dsdddddd</item>
-    </string-array>
+
+    <string name="title_activity_alert_time">AlertTime</string>
 
 </resources>

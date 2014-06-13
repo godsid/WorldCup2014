@@ -6,12 +6,39 @@ package info.srihawong.worldcup2014.app.Object;
 public class Match {
     long timestamp;
     String group,team1,team2,scroll;
+    String[] channel;
+    boolean alarm = false;
 
     public Match(long timestamp, String group, String team1, String team2) {
         this.timestamp = timestamp;
         this.group = group;
         this.team1 = team1;
         this.team2 = team2;
+
+    }
+    public Match(long timestamp, String group, String team1, String team2,String channel[],Boolean alarm) {
+        this.timestamp = timestamp;
+        this.group = group;
+        this.team1 = team1;
+        this.team2 = team2;
+        this.channel = channel;
+        this.alarm = alarm;
+    }
+
+    public String[] getChannel() {
+        return channel;
+    }
+
+    public void setChannel(String[] channel) {
+        this.channel = channel;
+    }
+
+    public boolean isAlarm() {
+        return alarm;
+    }
+
+    public void setAlarm(boolean alarm) {
+        this.alarm = alarm;
     }
 
     public long getTimestamp() {

@@ -1,4 +1,4 @@
-package info.srihawong.worldcup2014.app;
+package info.srihawong.worldcup2014.app.Object;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,11 +20,10 @@ public class ThaiDate {
 
     public static String format(String format){
 
-        return new SimpleDateFormat(format).format(new Date(0));
+        return new SimpleDateFormat(format).format(new Date().getTime());
 
     }
     public static String format(Long timestamp ,String format){
-
         return new SimpleDateFormat(format).format(new Date(timestamp));
 
     }

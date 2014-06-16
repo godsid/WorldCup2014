@@ -340,7 +340,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                     }else{
                         matchArrayList.get(position).setAlarm(true);
                         setAlarm(selectItem.getTimestamp());
-                        addAlarm(new Date().getTime()+10000);
+                        addAlarm(selectItem.getTimestamp());
                         Toast.makeText(getActivity().getBaseContext(),"เริ่มกำหนดเวลาแจ้งเตือนแล้ว "+ThaiDate.format(Config.dateTimeFormat),Toast.LENGTH_SHORT).show();
                     }
                     matchListAdapter.notifyDataSetChanged();

@@ -341,6 +341,7 @@ public class MainActivity extends ActionBarActivity implements ActionBar.TabList
                         matchArrayList.get(position).setAlarm(true);
                         setAlarm(selectItem.getTimestamp());
                         addAlarm(selectItem.getTimestamp());
+                        //addAlarm(new Date().getTime()+2000);
                         Toast.makeText(getActivity().getBaseContext(),"เริ่มกำหนดเวลาแจ้งเตือนแล้ว "+ThaiDate.format(Config.dateTimeFormat),Toast.LENGTH_SHORT).show();
                     }
                     matchListAdapter.notifyDataSetChanged();

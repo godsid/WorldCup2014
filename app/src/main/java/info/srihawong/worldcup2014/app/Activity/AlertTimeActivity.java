@@ -1,5 +1,6 @@
 package info.srihawong.worldcup2014.app.Activity;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,11 +24,17 @@ public class AlertTimeActivity extends ActionBarActivity {
     public static InterstitialAd interstitialAds;
     public AdRequest adRequest;
     public static Tracker gaTracker;
-
+    MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alert_time);
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.worldcup);
+        mediaPlayer.seekTo(0);
+        mediaPlayer.setLooping(true);
+        //mediaPlayer.setVolume(100,100);
+        mediaPlayer.start();
 
         /*******************************************************/
         //Create the interstitial Ads.
@@ -60,10 +67,17 @@ public class AlertTimeActivity extends ActionBarActivity {
     }
 
     @Override
+    protected void onPause() {
+        mediaPlayer.stop();
+        super.onPause();
+    }
+
+    @Override
     public void onBackPressed() {
         if(interstitialAds.isLoaded()) {
             interstitialAds.show();
         }
+        mediaPlayer.stop();
         super.onBackPressed();
     }
 

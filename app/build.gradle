@@ -8,8 +8,8 @@ android {
         applicationId "info.srihawong.worldcup2014"
         minSdkVersion 9
         targetSdkVersion 19
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.1.0"
     }
     buildTypes {
         release {
